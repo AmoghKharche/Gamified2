@@ -1,0 +1,307 @@
+/* Main Full-Screen Container */
+.quiz-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0px;
+    width: 900px;
+    height: 100vh;
+    z-index: 1000;
+    background-image: url('../../assets/level-two.jpg');
+    background-repeat: repeat;
+    background-size: 100%;
+    /* background-size: 600px 100vh; */
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  
+  /* The Green Quiz Box - Now a fixed-size container for the image */
+  .question-box {
+    width: 100%;
+  
+    /* You MUST set a height that matches your image's aspect ratio */
+    /* Adjust this height value as needed */
+    height: 550px; 
+    
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    
+    /* This is crucial for positioning the inner content box */
+    position: relative; 
+    padding: 0; /* Remove padding from the image container */
+    margin-bottom: 200px;
+  }
+  
+  .info-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;                /* space between items */
+    padding: 3px 16px;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .info-text .heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .info-text .bonus-text {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.95;
+  }
+  
+  
+  
+  
+  /* The new inner container that holds the text and scrolls */
+  .content-wrapper {
+    /* Position it inside the .question-box */
+    position: absolute;
+    /* Adjust these values to perfectly fit the text inside your image's border */
+    top: 0px;
+    bottom: 0px;
+    left: 100px;
+    right: 100px;
+  
+    /* The most important part: add a scrollbar if content overflows */
+    overflow-y: auto; 
+  
+    /* Center content vertically when it's short and doesn't need to scroll */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* --- Content Styles --- */
+  /* (These styles are now applied to the content inside the scrollable wrapper) */
+  
+  .question-text {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 32px;
+    padding: 0px 180px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .options-grid {
+    display: grid;
+    gap: 15px;
+    padding-top: 10px;
+    max-width: fit-content;
+  }
+  
+  .option-button {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px 10px 5px;
+      border-radius: 35px;
+      cursor: pointer;
+      font-size: 1rem;
+      background-color: transparent;
+      border: 3px solid #fff;
+  }
+  
+  /* ... other option styles remain the same ... */
+  
+  .option-letter {
+    background-color: #ffffff;
+    color: #d12c5b;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-right: 10px;
+      margin-left: 5px;
+  }
+  
+  .option-text {
+    color: #000000;
+    text-align: left;
+    line-height: 22px;
+      font-weight: 600;
+  }
+  
+  .option-selected {
+    background-color: #115acd !important;
+  }
+  
+  .option-selected .option-letter {
+    color: #115acd;
+  }
+  
+  /* You may need to style the scrollbar to match your design (optional) */
+  .content-wrapper::-webkit-scrollbar {
+    width: 8px;
+  }
+  .content-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(51, 196, 212, 0.5);
+    border-radius: 4px;
+  }
+  
+  .close-button {
+    position: absolute; /* Position it relative to the .question-box */
+    top: 110px;
+      right: 100px;
+    
+    /* Styling for the 'X' button */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    
+    font-size: 2.5rem; /* Make the 'X' larger */
+    color: #ffffff;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    z-index: 10;
+  }
+  
+  .close-button:hover {
+    opacity: 1;
+  }
+  
+  .close-button:focus-visible {
+  outline: none;
+  }
+  
+  /* 3️⃣ Zoom In */
+  .zoom-in {
+    opacity: 0;
+    transform: scale(0.7);
+    animation: zoomIn 0.6s ease-out forwards;
+  }
+  @keyframes zoomIn {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  
+  @media (min-width: 767px) and (max-width: 1024px) {
+     .quiz-container {
+        width: 100%;
+        padding: 0px;
+      }
+       .question-box {
+        width: 100%;
+      height: 100vh;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      position: relative;
+      padding: 0;
+      margin-bottom: 0px;
+      }
+  
+    .info-text {
+        display: block;
+      }
+      .info-text .bonus-text  {
+       display: block;
+          font-size: 2.2rem;
+          padding-bottom: 25px;
+          font-weight: 600;
+      }
+      .info-text .heading { 
+        font-size: 4rem;
+      }
+      .content-wrapper  {
+        left: 60px;
+        right: 60px;
+      }  
+  }
+  
+  
+  @media (max-width: 767px) {
+      .quiz-container {
+        width: 100%;
+        padding: 0px;
+      }
+      .content-wrapper {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        padding: 0px 25px;
+      }
+      .question-box {
+        width: 100%;
+      height: 100vh;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      position: relative;
+      padding: 0;
+      margin-bottom: 0px;
+      }
+      .options-grid  {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      }
+      .info-text {
+        display: block;
+      }
+      .info-text .bonus-text  {
+       display: block;
+          font-size: 1.2rem;
+          padding-bottom: 15px;
+      }
+      .close-button {
+      position: absolute;
+      top: 49px;
+      right: 47px;
+      }
+  
+      .question-text {
+      font-size: 20px;
+      line-height: 25px;
+      }
+  
+      .info-text .heading {
+      font-size: 2.5rem;
+      font-weight: 700;
+      }
+  
+  }
+
+  .quiz-bg-1 {
+    background-image: url('../../assets/quiz-1-bg.png');
+    width: 100%;
+    height: 100%;
+    margin-top: 100px;
+  }
+  
+  .quiz-bg-2 {
+    background-image: url('../../assets/quiz-2-bg.png');
+  }
+  
+  .quiz-bg-3 {
+    background-image: url('../../assets/quiz-3-bg.png');
+  }
+  
+  .quiz-bg-4 {
+    background-image: url('../../assets/quiz-4-bg.png');
+  }
+  
+  .quiz-bg-5 {
+    background-image: url('../../assets/quiz-5-bg.png');
+  }
+  

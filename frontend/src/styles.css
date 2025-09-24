@@ -2,3 +2,17 @@
 body {
     font-family: "Montserrat", sans-serif;
 }
+/* Reset box-sizing to avoid overflow */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    overflow-x: hidden; /* prevent horizontal scroll */
+  }
+  .my-big-modal .modal-content {
+    background: transparent; /* Make the problematic background disappear */
+    border: none; /* Remove the default border */
+  }

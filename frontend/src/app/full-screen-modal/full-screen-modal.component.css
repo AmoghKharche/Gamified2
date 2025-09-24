@@ -1,0 +1,45 @@
+::ng-deep .modal.full-screen-image {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;     /* ✅ allow scrolling */
+  }
+  
+  ::ng-deep .modal.full-screen-image .modal-dialog {
+    margin: 0;
+    max-width: 90vw;      /* ✅ take more width (90% of viewport) */
+    width: auto;
+  }
+  
+  ::ng-deep .modal.full-screen-image .modal-content {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    background: transparent;
+  }
+  
+  .modal-bg {
+    background: url('/assets/info1.jpg') no-repeat center top;
+    background-size: contain;  /* ✅ full image visible */
+    background-color: transparent;   /* fill gaps */
+    width: 100%;               /* expand to modal width */
+    height: auto;              /* natural height */
+    min-height: 100vh;         /* at least viewport height */
+  }
+  .close-btn {
+    position: fixed;         /* ✅ fixed to viewport instead of absolute in body */
+    top: 20px;
+    right: 18vw;
+    font-size: 2rem;
+    color: white;            /* ✅ visible on top of image */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2000;           /* ✅ above modal content */
+  }
+  
+  .close-btn:hover {
+    color: #ddd;
+  }
+  

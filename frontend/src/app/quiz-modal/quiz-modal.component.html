@@ -1,0 +1,29 @@
+<div class="quiz-container">
+    <div class="question-box  zoom-in" [ngClass]="'quiz-bg-' + quiz.id">
+      <div class="content-wrapper">
+        
+        <!-- Surprise block -->
+        <ng-container *ngIf="quiz.id === 4">
+          <div class="info-text">
+            <strong class="heading">🎉 SURPRISE!</strong>
+            <span class="bonus-text">+2 bonus points for quick thinking</span>
+          </div>
+        </ng-container>
+  
+        <!-- Question -->
+        <h2 class="question-text">{{ quiz.question }}</h2>
+  
+        <!-- Options -->
+        <div class="options-grid">
+          <button *ngFor="let option of quiz.options; let i = index"
+                  class="option-button"
+                  [class.option-selected]="i === selectedOptionIndex"
+                  (click)="selectOption(i)">
+            <span class="option-letter">{{ ['A', 'B', 'C', 'D'][i] }}</span>
+            <span class="option-text">{{ option }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

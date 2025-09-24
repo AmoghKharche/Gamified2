@@ -1,0 +1,66 @@
+:host {
+    display: block;
+    background-color: #fff;
+    border-radius: 16px;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  
+    /* ✅ This correctly lets the modal grow/shrink automatically */
+    width: auto;
+    max-width: 800px;
+  
+    /* ✅ Added for positioning the close button */
+    position: relative;
+  }
+  
+  .custom-modal-header {
+    /* No longer needs flex justification for the button */
+    padding: 16px 24px;
+    color: #404041;
+  }
+  
+  .modal-title {
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0;
+    padding: 5px;
+  }
+  
+  .close-button {
+    /* ✅ Changed to absolute positioning */
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  
+    /* Kept existing styles */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1.5rem;
+    color: #EC2225;
+    line-height: 1;
+    opacity: 0.8;
+    z-index: 10; /* Ensures it's above other header content */
+  }
+  
+  .close-button:hover {
+    opacity: 1;
+  }
+  
+  .custom-modal-body {
+    padding: 20px;
+    color:#606161
+  }
+  
+  .custom-modal-body ol {
+    padding-left: 20px;
+    margin: 0;
+  }
+  
+  .custom-modal-body li {
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
