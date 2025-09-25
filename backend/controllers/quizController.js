@@ -49,7 +49,7 @@ export const submitQuiz = async (req, res) => {
 
     res.status(201).json({
       message: "Quiz submitted successfully",
-      feedbackLink: "https://forms.office.com/e/Pj6Az2xLDK"
+      feedbackLink: "https://forms.office.com/e/tre6d952Py"
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
