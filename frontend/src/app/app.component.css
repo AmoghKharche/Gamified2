@@ -429,15 +429,16 @@ box-shadow: 0 0 10px rgba(51, 196, 212, 0.7); /* Teal glow */
 /* Mobiles */
 @media (max-width: 600px) {
   .feedback-container {
-    width: 190px;
+    width: 350px;
   }
   .feedback-text {
-    font-size: 15px;
+    font-size: 28px;
   }
   .feeback-text {
     font-size: 16px;
     text-align: center;
     padding: 4px 8px;
+    border-radius: 10px;
   }
   .level-four {
     padding: 10px;
