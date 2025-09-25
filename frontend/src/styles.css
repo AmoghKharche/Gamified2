@@ -16,3 +16,43 @@ body {
     background: transparent; /* Make the problematic background disappear */
     border: none; /* Remove the default border */
   }
+
+  .modal-content {
+    background: rgb(0 0 0 / 30%);
+  }
+
+.modal-fullscreen .modal-content {
+  width: 100%;
+}
+
+  .modal.show .modal-dialog {
+    transform: none;
+    max-width: 100%;
+    width: 100%;
+}
+
+app-info-modal {
+  width: 800px !important;
+  margin: 0 auto;
+}
+
+
+
+@media (max-width: 767px) {
+
+  app-info-modal {
+      max-width: 100% !important;
+      margin: 0 auto;
+  }
+
+  /* .modal-content {
+    width: 96%;
+  } */
+
+  .modal.show .modal-dialog {
+    transform: none;
+    max-width: 100%;
+    width: auto;
+}
+
+}

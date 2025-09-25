@@ -1,7 +1,6 @@
 <div class="main">
   <div class="level-name-main">
     <div class="level-one">
-
       <div class="heading-button">
         <!-- Decorative background shapes -->
         <div class="round-design-1"></div>
@@ -9,122 +8,163 @@
 
         <!-- Heading -->
         <div class="heading-text">
-          <span style="text-align: center;">
-            IS THAT A LEASE OR JUST A CONTRACT? <br>
+          <span style="text-align: center">
+            IS THAT A LEASE OR JUST A CONTRACT? <br />
             CLICK TO UNCOVER HIDDEN COMPLIANCE RISKS!
           </span>
         </div>
 
         <!-- Paragraph -->
-        <p>
-          Lease controls go beyond paperwork—they protect financial accuracy and ensure
-          compliance with global standards. This interactive mail walks you through the
-          end-to-end lease control process, from identifying embedded leases to
-          reconciling balance sheets. Click through, learn and win UR Awesome Points!
-        </p>
+        <div class="header-data">
+          Lease controls go beyond paperwork—they protect financial accuracy and
+          ensure compliance with global standards. This interactive mail walks
+          you through the end-to-end lease control process, from identifying
+          embedded leases to reconciling balance sheets. Click through, learn
+          and win UR Awesome Points!
+        </div>
 
         <!-- Image -->
         <div class="main-image">
-          <img src="../assets/main-image.png" alt="Main Graphic">
-        </div>
-      </div>
-      <div class="container">
-        <div class="btn-grid">
-          <span class="button"> 
-<a href="javascript:void(0)" class="btn-item" (click)="openModal1()">
-          <span>KEY TO IDENTIFY<br>AN EMBEDDED LEASE</span>
-        </a>
-          </span>
-          <span class="button"> 
-<a href="javascript:void(0)" class="btn-item" (click)="openModal2()">
-          <span>CAPTURING LEASES<br>IN PLASMA</span>
-        </a>
-          </span>
-
-          <span class="button"> 
-<a href="javascript:void(0)" class="btn-item" (click)="openModal3()">
-          <span>LEASE BALANCE<br>SHEET RECONCILIATION</span>
-        </a>
-          </span>
-
-         <span class="button"> 
-<a href="javascript:void(0)" class="btn-item" (click)="openModal4()">
-          <span>WHAT HAPPENS<br>IF WE MISS?</span>
-        </a>
-          </span>
-
-          <span class="button" [ngStyle]="{ 'opacity': allInfoVisited ? '1' : '0.3', 'pointer-events': allInfoVisited ? 'auto' : 'none' }"> 
-<a href="#level-three" class="btn-item">
-
-          <span>Test Your <br>Knowledge & Win!</span>
-        </a>
-          </span>
-       
-         <span class="button" [ngStyle]="{ 'opacity': allInfoVisited ? '1' : '0.3', 'pointer-events': allInfoVisited ? 'auto' : 'none' }"> 
-<a href="#level-three" 
-class="btn-item">
-          <span>We Value <br>Your Feedback</span>
-        </a>
-          </span>            
-       
+          <img src="../assets/main-image.png" alt="Main Graphic" />
         </div>
       </div>
 
-<div class="four-box-content">* Please go through the first four boxes before attempting the quiz</div>
+      <div class="level-two-new">
+        <div class="container button-box">
+          <div class="btn-grid">
+            <span class="button">
+              <a
+                href="javascript:void(0)"
+                class="btn-item"
+                (click)="openModal1()"
+              >
+                <span>KEY TO IDENTIFY<br />AN EMBEDDED LEASE</span>
+              </a>
+            </span>
+            <span class="button">
+              <a
+                href="javascript:void(0)"
+                class="btn-item"
+                (click)="openModal2()"
+              >
+                <span>CAPTURING LEASES<br />IN PLASMA</span>
+              </a>
+            </span>
 
+            <span class="button">
+              <a
+                href="javascript:void(0)"
+                class="btn-item"
+                (click)="openModal3()"
+              >
+                <span>LEASE BALANCE<br />SHEET RECONCILIATION</span>
+              </a>
+            </span>
+
+            <span class="button">
+              <a
+                href="javascript:void(0)"
+                class="btn-item"
+                (click)="openModal4()"
+              >
+                <span>WHAT HAPPENS<br />IF WE MISS?</span>
+              </a>
+            </span>
+
+            <span
+              class="button"
+              [ngStyle]="{
+                opacity: allInfoVisited ? '1' : '0.3',
+                'pointer-events': allInfoVisited ? 'auto' : 'none'
+              }"
+            >
+              <a href="#level-two" class="btn-item">
+                <span>Test Your <br />Knowledge & Win!</span>
+              </a>
+            </span>
+
+            <span
+              class="button"
+              [ngStyle]="{
+                opacity: allInfoVisited ? '1' : '0.3',
+                'pointer-events': allInfoVisited ? 'auto' : 'none'
+              }"
+            >
+              <a href="#level-two" class="btn-item">
+                <span>We Value <br />Your Feedback</span>
+              </a>
+            </span>
+
+            <div class="four-box-content">
+              * Please go through the first four boxes before attempting the
+              quiz
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="level-two">
+    <div class="level-two" id="level-two">
       <div class="user-form">
-        <div class="form-field">             
-          <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="ENTER YOUR EMAIL ID">
+        <div class="form-field">
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="email"
+            name="email"
+            placeholder="ENTER YOUR EMAIL ID"
+          />
         </div>
       </div>
       <div class="gifts-grid">
         <div class="gift-item" (click)="openQuizModal(quizzes[0])">
-          <img src="assets/quiz-common-image.png" alt="Gift Box" class="gift-image">
+          <img
+            src="assets/quiz-common-image.png"
+            alt="Gift Box"
+            class="gift-image"
+          />
         </div>
         <div class="gift-item" (click)="openQuizModal(quizzes[1])">
-          <img src="assets/quiz-common-image.png" alt="Gift Box" class="gift-image">
+          <img
+            src="assets/quiz-common-image.png"
+            alt="Gift Box"
+            class="gift-image"
+          />
         </div>
         <div class="gift-item" (click)="openQuizModal(quizzes[2])">
-          <img src="assets/quiz-common-image.png" alt="Gift Box" class="gift-image">
+          <img
+            src="assets/quiz-common-image.png"
+            alt="Gift Box"
+            class="gift-image"
+          />
         </div>
         <div class="gift-item" (click)="openQuizModal(quizzes[3])">
-          <img src="assets/quiz-common-image.png" alt="Gift Box" class="gift-image">
+          <img
+            src="assets/quiz-common-image.png"
+            alt="Gift Box"
+            class="gift-image"
+          />
         </div>
         <div class="gift-item" (click)="openQuizModal(quizzes[4])">
-          <img src="assets/quiz-common-image.png" alt="Gift Box" class="gift-image">
+          <img
+            src="assets/quiz-common-image.png"
+            alt="Gift Box"
+            class="gift-image"
+          />
         </div>
-        <!-- <div class="gift-item" (click)="openQuizModal(quizzes[4])">
-          <img src="assets/quiz-common-image.png" alt="Gift Box" class="gift-image">
-        </div> -->
-      </div>    </div>
+      </div>
+      <div class="level-four">
+        <div class="submission-container">
+          <button
+           class="feedback-button">
+            <div class="feedback-container" (click)="submitQuiz()">
+              <img src="assets/feedback.png" alt="Provide Feedback" class="feedback-image">
+              <span class="feedback-text">FEEDBACK FORM</span>
+            </div>
+          </button>
+         <div class="feeback-text">* Feedback submission will also submit your quiz.</div>
+          
+            </div>
+      </div>
+    </div>
   </div>
 </div>
-
-
-      <!-- <p>Lease controls go beyond paperwork-they protect financial accuracy and ensure 
-         compliance with global standards. This interactive mail walks you through the
-         end-to-end lease control process, from identifying embedded leases to
-         reconciling balance sheets. Click through, learn and win UR Awesome Points!
-      </p>
-
-      <p>
-        All contracts identified as embedded leases must be input 
-        into PLASMA. The team uploading the contract must maintain
-        supporting documentation for each entry.
-      </p> -->
-
-      <!-- <p>
-        This is applicable to leases charged to 416xx P&L (not stock).
-        Reconciliation is performed by the RTR team and reviewed by
-        the Group Controller. Following are the steps of how this
-        is performed:
-        <ol>
-          <li>
-            Validate completeness and accuracy of SAP clearing account
-            data.
-          </li>
-        </ol>
-      </p> -->
-

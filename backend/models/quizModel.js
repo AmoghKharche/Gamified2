@@ -12,24 +12,34 @@ const quizSchema = new mongoose.Schema(
     correctCount: { type: Number, default: 0 },
     wrongCount: { type: Number, default: 0 },
     result: { type: String, enum: ["Pass", "Fail"], default: "Fail" },
-    completionTime: { type: Number, default: 0 }
+    completionTime: { type: Number, default: 0 },
+     // IST string timestamps
+     createdAtIST: { type: String },
+     updatedAtIST: { type: String }
   },
   { timestamps: true }
 );
 
+// Pre-save hook to set IST timestamps
+quizSchema.pre("save", function(next) {
+  const now = new Date();
+  this.createdAtIST = now.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+  this.updatedAtIST = now.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+  next();
+});
+
+// Pre-update hook to update updatedAtIST
+quizSchema.pre("findOneAndUpdate", function(next) {
+  const now = new Date();
+  this._update.updatedAtIST = now.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+  next();
+});
+
+// Optional: convert to JSON with IST timestamps included
 quizSchema.set("toJSON", {
-  transform: function (doc, ret) {
-    const istOffset = 5.5 * 60 * 60 * 1000; // 5 hours 30 mins in ms
-    if (ret.createdAt) {
-      ret.createdAt = new Date(
-        new Date(ret.createdAt).getTime() + istOffset
-      ).toISOString();
-    }
-    if (ret.updatedAt) {
-      ret.updatedAt = new Date(
-        new Date(ret.updatedAt).getTime() + istOffset
-      ).toISOString();
-    }
+  transform: function(doc, ret) {
+    ret.createdAtIST = ret.createdAtIST || new Date(ret.createdAt).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+    ret.updatedAtIST = ret.updatedAtIST || new Date(ret.updatedAt).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
     return ret;
   }
 });

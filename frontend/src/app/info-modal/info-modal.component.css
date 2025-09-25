@@ -8,7 +8,6 @@
   
     /* ✅ This correctly lets the modal grow/shrink automatically */
     width: auto;
-    max-width: 800px;
   
     /* ✅ Added for positioning the close button */
     position: relative;
@@ -16,15 +15,18 @@
   
   .custom-modal-header {
     /* No longer needs flex justification for the button */
-    padding: 16px 24px;
-    color: #404041;
+    padding: 40px 24px 10px;
+    color: #000;
   }
   
   .modal-title {
     font-weight: 500;
-    font-size: 20px;
+    font-size: 25px;
     margin: 0;
-    padding: 5px;
+  }
+
+  .bi.bi-x-circle-fill {
+    font-size: 30px;
   }
   
   .close-button {
@@ -50,8 +52,10 @@
   }
   
   .custom-modal-body {
-    padding: 20px;
-    color:#606161
+    padding: 10px 30px;
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
   }
   
   .custom-modal-body ol {
@@ -61,6 +65,5 @@
   
   .custom-modal-body li {
     margin-bottom: 12px;
-    font-size: 16px;
     line-height: 1.5;
   }

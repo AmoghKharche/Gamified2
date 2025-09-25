@@ -4,30 +4,34 @@
 }
 
 .level-one {
-  background: url('../assets/level-one.jpg') no-repeat;
-  background-position: 100%;
-  background-size: 100% 100%;
-  min-height: 3180px; /* reduced from 3180px for demo */
-  border-bottom: 3px solid #fff;
+  background: url('../assets/01.jpg') no-repeat;
+  background-size: 100%;
+  min-height: 1284px;
   position: relative;
-  padding: 50px 0;
+}
+
+.level-two-new {
+    background: url('../assets/02.jpg') no-repeat;
+  background-size: 100%;
+  min-height: 1896px;
+  position: relative;
 }
 
 .heading-button {
   position: relative; /* anchor for absolute elements */
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding-top: 80px;
 }
 
 .heading-text {
   font-weight: 900;
-  font-size: 25px;
+  font-size: 30px;
   line-height: 52px;
   color: #a81e5c;
   letter-spacing: 1px;
   background: url(../assets/heading1.png) no-repeat center center;
-  background-size: 852px;
+  background-size: 1080px;
   height: 162px;
   display: flex;
   align-items: center;
@@ -47,29 +51,45 @@
   text-align: center;
 }
 
+.header-data {
+  font-size: 27px;
+  margin: 10px auto;
+  color: #fff;
+  text-align: center;
+  margin-top: 30px;
+  padding: 30px;
+
+/* Two images, first one is drawn on top */
+  background-image: url("../assets/round-1.png"), url("../assets/round-2.png");
+
+  /* Position each image */
+  background-position: left top, right bottom;
+
+  /* Prevent repeating */
+  background-repeat: no-repeat, no-repeat;
+
+  /* Optional: size each image if needed */
+ 
+
+
+
+}
+
 .main-image {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
-  width: 90%;
-  height: 90%;
-  padding-left: 19px;
+  padding-top: 15px;
+}
+.main-image img {
+  width: 65%;
+  height: auto;
 }
 
 /* Round design elements positioned absolutely so they don't push content */
-.round-design-1,
-.round-design-2 {
-  position: absolute;
-  width: 500px;
-  height: 200px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  z-index: 0; /* behind text */
-  opacity: 0.9; /* optional */
-}
 
-.round-design-1 {
+
+/* .round-design-1 {
   background-image: url('../assets/round1.png');
   top: 130px;
   left: -10vw;
@@ -79,7 +99,28 @@
   background-image: url('../assets/round2.png');
   top: 160px;
   right: -250px;
+} */
+
+
+.header-content {
+  width: 400px;
+  height: 300px;
+
+  /* Two images, first one is drawn on top */
+  background-image: url("../assets/round1.png"), url("../assets/round2.png");
+
+  /* Position each image */
+  background-position: left top, right bottom;
+
+  /* Prevent repeating */
+  background-repeat: no-repeat, no-repeat;
+
+  /* Optional: size each image if needed */
+  background-size: 100px 100px, 80px 80px; /* or contain/cover/auto */
 }
+
+
+
 
 
 .container {
@@ -92,9 +133,16 @@
 .btn-grid {
   display: grid;
   grid-template-columns: 1fr; /* single column by default */
-  gap: 20px;
-  max-width: 400px; /* prevents overflow */
+  gap: 50px;
   width: 100%;
+  padding-top: 300px;
+}
+
+.four-box-content {
+  color: #fff;
+  font-size: 22px;
+  text-align: center;
+  font-weight: 500;
 }
 
 /* Individual button wrapper */
@@ -108,14 +156,14 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 550px;
-  height: 150px;    /* adjust to your button image size */
+  background-size: 70%;
+    background-repeat: no-repeat;
+  height: 190px;    /* adjust to your button image size */
 
   background-image: url('../assets/button.png'); /* replace with actual button image */
-  background-size: cover;
   background-position: center;
 
-  font-size: 18px;
+  font-size: 40px;
   font-weight: bold;
   color: #fff;
   text-decoration: none;
@@ -140,8 +188,8 @@
   background: url('../assets/level-two.jpg') no-repeat;
     background-position: 100%;
     background-size: 100% 100%; 
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 1206px;
 }
 
 
@@ -150,8 +198,8 @@
   display: flex;
   flex-wrap: wrap;           /* allow multiple rows */
   justify-content: center;   /* center each row's content */
-  gap: 1px;                 /* spacing between items */
-  max-width: 900px;
+    gap: 20px;
+    max-width: 910px;
   margin: 32px auto;
   padding: 0 12px;
   box-sizing: border-box;
@@ -168,10 +216,11 @@ grid-template-columns: repeat(3,1fr);
 
 .gift-image {
   width: 100%;
-  max-width: 220px;           /* control box size */
+  max-width: 280px;           /* control box size */
   height: auto;
   display: block;
   object-fit: contain;
+  cursor: pointer;
 }
 
 .user-form {
@@ -180,7 +229,9 @@ grid-template-columns: repeat(3,1fr);
 .user-form {
   display: flex;
   justify-content: center; /* Center the fields on the page */ 
-  width: 500px;
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 20px;
 }
 .form-field {
   flex-direction: column;
@@ -204,7 +255,11 @@ font-weight: 500;
   font-weight: 600;
   outline: none;
   transition: all 0.2s ease-in-out;
-  width: 100%;
+  width: 50%;
+}
+
+.form-field {
+  text-align: center;
 }
 
 /* Style for the placeholder text */
@@ -221,5 +276,171 @@ box-shadow: 0 0 10px rgba(51, 196, 212, 0.7); /* Teal glow */
 @media (max-width: 600px) {
   .user-form {
     flex-direction: column; /* Stack fields vertically on mobile */
+  }
+}
+
+
+
+
+@media (max-width: 767px) {
+.level-one {
+    background-size: 546% 100%;
+        background-position: 100%;
+}
+
+.heading-text {
+  background: inherit;
+  height: auto;
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 10px;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.main-image img  {
+    width: 80%;
+    height: auto;
+}
+
+.btn-grid {
+  padding-top: 70px;
+  width: auto;
+  gap: 10px;
+}
+.btn-item span {
+  padding: 0px;
+}
+.container {
+  padding: 20px 10px;
+}
+
+.btn-item {
+  background-size: 110%;
+  font-size: 21px;
+  height: 120px;
+}
+
+.level-two-new  {
+    background-size: 200% 100%;
+    min-height: auto;
+}
+
+.form-field input {
+  width: 90%;
+}
+
+.level-two {
+    background-size: 580% 100%;
+    height: inherit;
+}
+.gifts-grid {
+  margin: 0px;
+  padding-bottom: 50px;
+}
+
+.heading-button[_ngcontent-ng-c3070970414] {
+    padding-top: 30px;
+}
+
+}
+
+.feedback-container {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+  width: 200px;   /* control button size */
+  height: auto;   /* keep proportions */
+}
+
+.feedback-image {
+  width: 100%;   /* scale image to container */
+  height: auto;
+  display: block;
+}
+
+.feedback-text {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  color: white;
+  font-weight: 900;
+  font-size: 18px;   /* smaller text */
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+
+
+
+.submission-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-direction: column;
+  width: 100%; 
+}
+
+.feeback-text {
+  margin-top: -10px;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 6px 12px;
+  color: #fff;
+  background: #9b2e80;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+
+
+.level-four {
+  width: 1200px;
+  margin: 0 auto;
+}
+/* --- Feedback Image Button --- */
+.feedback-button {
+  border: none;
+  background: none;
+  padding: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.feedback-container:hover {
+  transform: translateY(-3px);
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .feedback-container {
+    width: 160px;
+  }
+  .feedback-text {
+    font-size: 16px;
+  }
+  .feeback-text {
+    font-size: 18px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+  .feedback-container {
+    width: 120px;
+  }
+  .feedback-text {
+    font-size: 11px;
+  }
+  .feeback-text {
+    font-size: 16px;
+    text-align: center;
+    padding: 4px 8px;
+  }
+  .level-four {
+    padding: 10px;
+    width: 100%;
   }
 }

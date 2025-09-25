@@ -25,6 +25,9 @@ export class AppComponent {
   selectedQuiz: IQuiz | null = null;
   email:any
   visitedModals: boolean[] = [false, false, false, false];
+  quizStartTime: number | null = null; 
+  quizDuration: number | null = null;
+
   allModalData: any = [
     {
       title: 'All contracts identified as embedded leases must be input into PLASMA. The team uploading the contract must maintain supporting documentation for each entry.',
@@ -128,7 +131,7 @@ export class AppComponent {
   openModal1() {
     this.modalService.open(FullScreenModalComponent, {
       backdrop: 'static',
-      keyboard: false,
+      keyboard: true,
       windowClass: 'full-screen-image'
     });
     this.visitedModals[0] = true;
@@ -168,7 +171,12 @@ export class AppComponent {
   get allInfoVisited(): boolean {
     return this.visitedModals.every(v => v);
   }
+
+
   openQuizModal(quizData: IQuiz) {
+    if (!this.quizStartTime) {
+      this.quizStartTime = Date.now();
+    }
     const modalRef = this.modalService.open(QuizModalComponent, {
       centered: false, 
       backdrop: 'static',
@@ -185,9 +193,72 @@ export class AppComponent {
     modalRef.result.then((result: { [key: number]: string } | null) => {
       if (result) {
         this.userAnswers = { ...this.userAnswers, ...result };
-        console.log('Current answers:', this.userAnswers);
       }
     }).catch(() => {
     });
+  }
+
+  scrollToQuiz() {
+    if (!this.allInfoVisited) {
+      alert("Please go through all the information boxes first.");
+      return;
+    }
+    document.getElementById('level-three')?.scrollIntoView({ behavior: 'smooth' });
+  }
+  
+  get isSubmitDisabled(): boolean {
+    return Object.keys(this.userAnswers).length < 5;
+  }
+  isValidName(name: string): boolean {
+    return /^[a-zA-Z\s]{2,50}$/.test(name.trim()); // only letters + spaces, min 2 chars
+  }
+  
+  isValidEmail(email: string): boolean {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()); // simple email regex
+  }
+  
+  submitQuiz(){
+    if(this.quizStartTime){
+      this.quizDuration = Math.floor((Date.now() - this.quizStartTime) / 1000); // in seconds
+    }
+    if (!this.allInfoVisited) {
+      alert("Please visit all the information boxes before attempting the quiz.");
+      return;
+    }
+  
+    if (!this.email || !this.isValidEmail(this.email)) {
+      alert("Please enter a valid Email ID.");
+      return;
+    }
+  
+    if(this.isSubmitDisabled){
+      alert("Please answer all questions.");
+      return;
+    }
+
+    const submission = {
+      email: this.email,
+      answers: this.userAnswers,
+      completionTime: this.quizDuration
+    };
+
+
+    this.quizService.submitQuiz(submission).subscribe({
+      next: (data: { feedbackLink?: string }) => {
+        if (data.feedbackLink) {
+          window.open(data.feedbackLink, '_blank'); // open in new tab
+        }
+      },
+      error: (err: { error: { message: string; }; }) => {
+        const errorMsg = err.error?.message || 'Unknown error';
+
+        if (errorMsg.toLowerCase().includes("email already submitted")) {
+          alert("You have already submitted the quiz with this email.");
+        } else {
+          alert("Error submitting quiz. Try again");
+        }
+      }
+    });
+  
   }
 }
