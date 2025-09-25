@@ -1,10 +1,10 @@
 // Example correct answers
 const correctAnswers = {
-    1: "B",
+    1: "C",
     2: "B",
-    3: "B",
+    3: "C",
     4: "C",
-    5: "C"
+    5: "B"
   };
   
   export const calculateScore = (submittedAnswers) => {

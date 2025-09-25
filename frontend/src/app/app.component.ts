@@ -119,7 +119,7 @@ export class AppComponent {
         "They are written off",
         "They are reported as Value at Risk (VAR)",
         "They are escalated to legal",
-        "They are reported as Value at Risk (VAR)",
+        "They are ignored",
       ]
     },
   ];
